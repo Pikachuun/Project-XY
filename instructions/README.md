@@ -24,6 +24,6 @@ Step 2:
 -------
 Paste the text into formats.js, under the Other Metagames section.
 
-That's it! You're done. Now enjoy Project XY! :L
+That's it! You're done. Now enjoy Project XY!
 
 ~Pikachuun and iSmogoon
