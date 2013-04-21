@@ -364,6 +364,25 @@ exports.BattleMovedex = {
 	"shadowclaw": {
 		inherit: true,
 		basePower: 80
+	},
+        "shellsmash": {
+                inherit: true,
+                boosts: {
+                        atk: 2,
+                        spa: 2,
+                        spe: 2,
+                        def: -1,
+                        spd: -1
+                },
+                onModifyMove: function(move, user) {
+                        if (user.ability === 'shellarmor') {
+                                move.boosts = {
+                                        spa: 1,
+                                        atk: 1,
+                                        spe: 1,
+                                };
+                        }
+                }
 	},	
 	"skyattack": {
 		num: 143,
@@ -439,7 +458,7 @@ exports.BattleMovedex = {
 		type: "Normal"
 	},
 	"stealthrock": {
-		inherit: true
+		inherit: true,
 		desc: "Sets up a hazard on the foe's side of the field, damaging each foe that switches in. Can be used only once before failing. Foes lose 1/32, 1/16, 1/8, or 1/4 of their maximum HP, rounded down, based on their weakness to the Rock-type; 0.25x, 0.5x, neutral, or 2x or greater, respectively. Can be removed from the foe's side if any foe uses Rapid Spin or is hit by Defog. Pokemon protected by Magic Coat or the Ability Magic Bounce are unaffected and instead use this move themselves. (CAP: Pokemon with the Ability Mountaineer are immune.)",
 		effect: {
 			// this is a side condition
