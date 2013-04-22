@@ -3,7 +3,7 @@
 Ratings and how they work:
 
 -2: Extremely detrimental
-    The sort of ability that relegates Pokemon with Uber-level BSTs
+	  The sort of ability that relegates Pokemon with Uber-level BSTs
 	  into NU.
 	ex. Slow Start, Truant
 
@@ -165,26 +165,20 @@ exports.BattleAbilities = {
 		num: 8
 	},
 	"scrappy": {
-		desc: "This Pokemon has the ability to bypass all immunities. Effectiveness of these moves takes into account the Pokemon's other weaknesses and resistances.",
-		shortDesc: "This Pokemon can bypass all immunities.",
+		desc: "This Pokemon has the ability to bypass all type immunities. Effectiveness of these moves takes into account the Pokemon's other weaknesses and resistances.",
+		shortDesc: "This Pokemon can bypass all type immunities.",
 		onFoeModifyPokemon: function(pokemon) {
-			pokemon.negateImmunity['Normal'] = true;
-			pokemon.negateImmunity['Fighting'] = true;
-			pokemon.negateImmunity['Fire'] = true;
-			pokemon.negateImmunity['Water'] = true;
-			pokemon.negateImmunity['Grass'] = true;
-			pokemon.negateImmunity['Poison'] = true;
-			pokemon.negateImmunity['Steel'] = true;
-			pokemon.negateImmunity['Dark'] = true;
-			pokemon.negateImmunity['Ghost'] = true;
-			pokemon.negateImmunity['Rock'] = true;
-			pokemon.negateImmunity['Ground'] = true;
-			pokemon.negateImmunity['Electric'] = true;
-			pokemon.negateImmunity['Ice'] = true;
-			pokemon.negateImmunity['Bug'] = true;
-			pokemon.negateImmunity['Flying'] = true;
-			pokemon.negateImmunity['Psychic'] = true;
-			pokemon.negateImmunity['Dragon'] = true;
+			if (pokemon.hasType('Ghost')) {
+				pokemon.negateImmunity['Normal'] = true;
+				pokemon.negateImmunity['Fighting'] = true;
+			} else if (pokemon.hasType('Normal')) {
+				pokemon.negateImmunity['Ghost'] = true;
+			} else if (pokemon.hasType('Flying')) {
+				pokemon.negateImmunity['Ground'] = true;
+			} else if (pokemon.hasType('Ground')) {
+				pokemon.negateImmunity['Electric'] = true;
+			} else if (pokemon.hasType('Steel')) {
+				pokemon.negateImmunity['Poison'] = true;
 			}
 		},
 		id: "scrappy",
