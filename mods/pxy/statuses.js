@@ -32,9 +32,6 @@ exports.BattleStatuses = {
 			if (source && source.item === 'damprock') {
 				return 8;
 			}
-			else if (source && source.ability === 'forecast') {
-				return 0;
-			}
 			return 5;
 		},
 		onBasePower: function(basePower, attacker, defender, move) {
@@ -70,9 +67,6 @@ exports.BattleStatuses = {
 		durationCallback: function(source, effect) {
 			if (source && source.item === 'heatrock') {
 				return 8;
-			}
-			else if (source && source.ability === 'forecast') {
-				return 0;
 			}
 			return 5;
 		},
@@ -113,9 +107,6 @@ exports.BattleStatuses = {
 			if (source && source.item === 'smoothrock') {
 				return 8;
 			}
-			else if (source && source.ability === 'forecast') {
-				return 0;
-			}
 			return 5;
 		},
 		onModifySpD: function(spd, pokemon) {
@@ -149,9 +140,6 @@ exports.BattleStatuses = {
 		durationCallback: function(source, effect) {
 			if (source && source.item === 'icyrock') {
 				return 8;
-			}
-			else if (source && source.ability === 'forecast') {
-				return 0;
 			}
 			return 5;
 		},
