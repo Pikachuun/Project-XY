@@ -65,6 +65,20 @@ exports.BattleAbilities = {
 		rating: 4,
 		num: 138
 	},
+	"forecast": {
+		inherit: true,
+		onModifyMove: function(move) {
+			if (move.weather) {
+				var weather = move.weather;
+				move.weather = null;
+				move.onHit = function(target, source) {
+					this.setWeather(weather, source, this.getAbility('forecast'));
+					this.weatherData.duration = 0;
+				};
+				move.target = 'self';
+			}
+		}
+	},
 	"healer": {
 		desc: "Heals one-sixteenth of this Pokemon's max HP after every turn.",
 		shortDesc: "This Pokemon is healed by 1/16 of its max HP each turn..",
